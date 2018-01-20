@@ -1,8 +1,8 @@
 // require word generator
-var computerGuess = require("./Random.js");
+var newWord = require("./Random.js");
 
 
-  // * **Word**: Used to create an object representing the current word the user is attempting to guess. This should contain word specific logic and data.
+// * **Word**: Used to create an object representing the current word the user is attempting to guess. This should contain word specific logic and data.
 
 
 // Constructor the makes the words
@@ -31,7 +31,7 @@ var Word = function (word) {
 	}
 }
 
-Word(computerGuess);
+Word(newWord);
 
 
 // for each letter make an underscore array
