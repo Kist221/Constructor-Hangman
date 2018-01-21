@@ -3,19 +3,18 @@ var newWord = require("./Random.js");
 var Letter = require("./Letter.js");
 
 
-// Constructor the makes the words
+// Constructor that makes the word into game variables
 var Word = function (word) {
 	// store word in variable
-	this.word = word.toUpperCase().trim();
+	this.word = word.trim();
 	// represent word as array of letters
 	this.wordLetters = [];
 	// store tried inputs
-	this.triedLetters = [];
+	this.triedLetters = ["e"];
 	// loop length of word
 	for (var i = 0; i < this.word.length; i++) {
 		// push each letter of word into array
 		this.wordLetters.push(new Letter(this.word.charAt([i])));
-		// console.log(wordLetters[i]);
 	}
 }
 
@@ -28,7 +27,7 @@ Word.prototype.displayWord = function() {
 		//make string / for each letter object run displayLetter method
 		print += this.wordLetters[i].displayLetter() + " ";
 	}
-	return print;
+	return print.toUpperCase();
 };
 
 
@@ -40,11 +39,19 @@ Word.prototype.checkWord = function(letterInput) {
 };
 
 
+// TESTING
+var test = "e";
 
 var a = new Word(newWord());
 
+if (a.triedLetters.indexOf(test) === -1) {
+	console.log(true);
+	a.triedLetters.push(test);
+}
 
-a.checkWord("a");
+a.checkWord(test);
+
+console.log(a.triedLetters);
 
 console.log(a.word);
 console.log(a.displayWord());

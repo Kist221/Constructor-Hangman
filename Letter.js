@@ -17,31 +17,21 @@ Letter.prototype.displayLetter = function(){
 };
 
 
-// THIS METHOD COMPARES INPUT TO LETTER
+// THIS METHOD COMPARES INPUT TO LETTERS
 Letter.prototype.checkLetter = function(letterInput) {
 	// compare input to letters in word
-	// REMOVE TO UPPERCASE LATER AND ATTACH TO INPUT VAR
-	if (this.letter === letterInput.toUpperCase()) {
+	// REMOVE TO UPPERCASE LATER AND MOVE?
+	if (this.letter === letterInput) {
 		this.guessed = true;
 	}
 };
 
 
-
-
-// var a = new Letter("b");
-
-
-// a.checkLetter("b");
-
-
-// console.log(a.displayLetter());
-
-
-
-
-
-
+// // method for storing inputs to prevent duplicates
+// Letter.prototype.storeLetter = function(lette) {
+// 	// return letter
+// 	return this.letter;
+// };
 
 
 // export Letter constructor
