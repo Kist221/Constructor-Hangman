@@ -1,0 +1,28 @@
+{
+  "name": "constructor-hangman",
+  "version": "2.2.1",
+  "description": "This is a node application of Hangman! Made with constructors and using the inquirer package for input! Have fun!",
+  "main": "CLI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kist221/Constructor-Hangman.git"
+  },
+  "keywords": [
+    "Hangman",
+    "Node",
+    "Inquirer",
+    "Constructors"
+  ],
+  "author": "Kist221",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kist221/Constructor-Hangman/issues"
+  },
+  "homepage": "https://github.com/Kist221/Constructor-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^5.0.1"
+  }
+}

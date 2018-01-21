@@ -1,4 +1,5 @@
-// Constructor that takes in letter inputs and deals accordingly?
+
+// Constructor that turns letters into game objects
 var Letter = function (letterInput) {
 	// store input
 	this.letter = letterInput;
@@ -25,13 +26,6 @@ Letter.prototype.checkLetter = function(letterInput) {
 		this.guessed = true;
 	}
 };
-
-
-// // method for storing inputs to prevent duplicates
-// Letter.prototype.storeLetter = function(lette) {
-// 	// return letter
-// 	return this.letter;
-// };
 
 
 // export Letter constructor
