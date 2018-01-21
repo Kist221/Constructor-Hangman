@@ -1,8 +1,6 @@
-// require word generator
+// require files
 var newWord = require("./Random.js");
-
-
-// * **Word**: Used to create an object representing the current word the user is attempting to guess. This should contain word specific logic and data.
+var Letter = require("./Letter.js");
 
 
 // Constructor the makes the words
@@ -11,32 +9,43 @@ var Word = function (word) {
 	this.word = word.toUpperCase().trim();
 	// represent word as array of letters
 	this.wordLetters = [];
-	this.wordHidden = [];
-	console.log(this.word.length);
-	// convert word to underscores
-	// check if current word
-	if (wordLetters.length === 0) {
-		console.log(true);
-		// loop length of word
-		for (var i = 0; i < this.word.length; i++) {
-			// push each letter of word into array
-			wordLetters.push(this.word.charAt([i]));
-			console.log(wordLetters);
-			// also create the hidden word array
-			if (wordLetters[i] !== -1) {
-				wordHidden.push("_");
-				console.log(wordHidden);
-			}
-		}
+	// loop length of word
+	for (var i = 0; i < this.word.length; i++) {
+		// push each letter of word into array
+		this.wordLetters.push(new Letter(this.word.charAt([i])));
+		// console.log(wordLetters[i]);
 	}
 }
 
-Word(newWord);
+
+// method available to new object returned by Word constructor
+Word.prototype.displayWord = function() {
+	var print = "";
+	for (var i = 0; i < this.wordLetters.length; i++) {
+		//make string / for each letter object run displayLetter method
+		print += this.wordLetters[i].displayLetter() + " ";
+	}
+
+	return print;
+};
 
 
-// for each letter make an underscore array
 
 
 
 
+var a = new Word(newWord());
+
+
+for (var i = 0; i < a.wordLetters.length; i++) {
+	a.wordLetters[i].checkIfTried("i");
+}
+
+
+console.log(a.displayWord());
+
+
+
+
+// export Word constructor
 module.exports = Word;
