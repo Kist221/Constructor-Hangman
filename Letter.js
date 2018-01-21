@@ -5,6 +5,7 @@ var Letter = function (letterInput) {
 	this.guessed = false;
 }
 
+
 // method available to each new object returned from Letter constructor
 Letter.prototype.displayLetter = function(){
 	// chek if letter is guess and display accordingly
@@ -15,9 +16,12 @@ Letter.prototype.displayLetter = function(){
 	}
 };
 
-Letter.prototype.checkIfTried = function(letterGuess) {
+
+// THIS METHOD COMPARES INPUT TO LETTER
+Letter.prototype.checkLetter = function(letterInput) {
 	// compare input to letters in word
-	if (this.letter === letterGuess.toUpperCase()) {
+	// REMOVE TO UPPERCASE LATER AND ATTACH TO INPUT VAR
+	if (this.letter === letterInput.toUpperCase()) {
 		this.guessed = true;
 	}
 };
@@ -28,7 +32,7 @@ Letter.prototype.checkIfTried = function(letterGuess) {
 // var a = new Letter("b");
 
 
-// a.checkIfTried("b");
+// a.checkLetter("b");
 
 
 // console.log(a.displayLetter());
