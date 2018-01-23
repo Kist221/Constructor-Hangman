@@ -20,7 +20,7 @@ var Word = function (word) {
 // THIS METHOD PRINTS OUT THE WORD > WORD.WORDLETTERS
 // method available to new object returned by Word constructor
 Word.prototype.displayWord = function() {
-	var print = "\n";
+	var print = "";
 	for (var i = 0; i < this.wordLetters.length; i++) {
 		//make string / for each letter object run displayLetter method
 		print += this.wordLetters[i].displayLetter() + " ";
