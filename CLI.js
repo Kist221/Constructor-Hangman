@@ -15,7 +15,20 @@ var word;
 var getNewWord = function() {
   // create word with constructor
   word = new Word(newWord());
-}
+};
+
+// function to check if word is solved
+var isSolved = function () {
+  // loop through word letters and check if any guessed are still false
+  for (var i = 0; i < word.wordLetters.length; i++) {
+    if (word.wordLetters[i].guessed === false) {
+      // if any letters aren't guessed yet, return false (which exits the function - LOVE IT)
+      return false;
+    }
+  }
+  // if all letters are guessed return true
+  return true;
+};
 
 // function to print word
 var print = function () {
@@ -28,16 +41,17 @@ var inquireLetter = function() {
   inquirer.prompt([
     {
       type: "input",
-      message: "Choose a letter!",
+      message: "Choose a letter!\n",
       name: "letterChoice"
     }
     ]).then(answers => {
       word.checkWord(answers.letterChoice);
-      // return answers.letterChoice;
-      console.log(word);
       print();
+      if (isSolved() === true) {
+        console.log("\nYOU WON!\n")
+      } else {
       inquireLetter();
-      // if (answers.letterChoice) {}
+      }
   });
 };
 
