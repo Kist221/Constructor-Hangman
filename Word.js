@@ -41,20 +41,20 @@ Word.prototype.triedInputs = function(letterInput) {
 	if (this.triedLetters.indexOf(letterInput) === -1) {
 		// push letter into triedLetters if not present
 		this.triedLetters.push(letterInput);
+		return false;
 	}
-	return this.triedLetters;
+	return true;
 };
+
 
 // TESTING
 // var test = "e";
-
 // var a = new Word(newWord());
-
 // console.log(a.triedInputs(test));
-
 // a.checkWord(test);
 // console.log(a.word);
 // console.log(a.displayWord());
+
 
 // export Word constructor
 module.exports = Word;
