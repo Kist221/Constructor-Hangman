@@ -6,11 +6,10 @@
 - - -
 ## Instructions
 
-The completed game should meet the following criteria:
+This is a node application, meaning you must run it from a terminal with [node](https://nodejs.org/en/) installed.
 
 
-
-**HINT:** If you name your letter's display function `toString`, JavaScript will call that function automatically whenever casting that object to a string (check out this example: https://jsbin.com/facawetume/edit?js,console)
+**HINT:** All the answers are not always **black** and _white_... :D
 
 - - -
 
