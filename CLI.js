@@ -6,10 +6,12 @@ var newWord = require("./Random.js");
 var Word = require("./Word.js");
 
 // Variables needed for hangman game
+// alphabet for checking valid input
 var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-// variable to store current game word
+// store current game word
 var word;
+// guesses counter
+var guesses;
 
 // function to create new game word
 var getNewWord = function() {
@@ -33,7 +35,7 @@ var isSolved = function () {
 // function to print word
 var print = function () {
   // print the current status of current word
-  console.log(word.displayWord());
+  console.log("\n" + word.displayWord() + "\n");
 };
 
 // need inquirer function for just getting letter inputs
@@ -41,11 +43,18 @@ var inquireLetter = function() {
   inquirer.prompt([
     {
       type: "input",
-      message: "Choose a letter!\n",
+      message: "Choose a letter!",
       name: "letterChoice"
     }
     ]).then(answers => {
-      word.checkWord(answers.letterChoice);
+      // store letter input for simplifying
+      var guess = answers.letterChoice.toLowerCase();
+      // check if input is valid (alpha)
+      if (-1 === alpha.indexOf(guess)) {
+        console.log("\nPlease input a valid letter!\n");
+        return inquireLetter();
+      }
+      word.checkWord(guess);
       print();
       if (isSolved() === true) {
         console.log("\nYOU WON!\n")
@@ -56,8 +65,8 @@ var inquireLetter = function() {
 };
 
 // NEED:
-// VALIDATE INPUT IS ALPHA
-// REPEAT INQUIRELETTER IF WORD ISN'T GUESSED OR ISN'T OUT OF GUESSES
+// Working counter
+// REPEAT INQUIRELETTER IF NOT OUT OF GUESSES
 
 
 // START GAME FUNCTION
@@ -82,13 +91,11 @@ var startGame = function() {
           console.log(word.word);
           inquireLetter();
         } else {
-          // if no the exit
+          // if no then exit
           console.log("\nMaybe Next Time!\n")
         }
     });
 };
 
+// LET'S PLAY - START THE GAME
 startGame();
-
-
-
