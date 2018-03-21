@@ -24,7 +24,7 @@ var print = function () {
   // print the current status of current word
   console.log("\n" + word.displayWord() + "\n");
   console.log("\nGuesses: " + word.triedLetters);
-  console.log("Remaining: " + guesses);
+  console.log("Remaining: " + guesses + "\n");
 };
 
 // function to check if word is solved
@@ -117,7 +117,6 @@ var startGame = function() {
           console.log("Type 'exit' at any time to quit.");
           // display word
           print();
-          console.log(word.word);
           inquireLetter();
         } else {
           // if no then exit
